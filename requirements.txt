@@ -1,0 +1,6 @@
+pytest
+duckdb
+pandas
+pyarrow
+pytest-cov
+pytest-mock
