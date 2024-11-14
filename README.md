@@ -51,7 +51,7 @@ Data loading into DuckDB was implemented in Python with the following optimizati
 - **Transactions:** Database transactions are employed to guarantee atomicity and data consistency during the loading process.
 - **Validation:** A validation step checks that the number of loaded rows matches the source CSV, ensuring data integrity.
 
-#### Benchmarking
+### Benchmarking
 
 To assess the performance of this custom loading process, a built-in DuckDB approach using the `COPY` feature was also implemented in [electric_vehicle_data_loader.py](./electric_vehicle_data_loader.py) as `load_data_built_in`. Benchmark results show:
 - `load_data_built_in`: Loads data in less than one second.
