@@ -45,7 +45,7 @@ Census_Tract VARCHAR
 
 ### Data Loading Implementation
 
-Data loading into DuckDB was implemented in Python with the following optimizations:
+Data loading into DuckDB was implemented in Python with the following aspects in mind:
 - **Batch Processing:** Data is loaded in batches to improve performance over single-row insertions.
 - **Type Conversion:** Custom type conversion functions ensure accurate parsing and storage of numeric fields.
 - **Transactions:** Database transactions are employed to guarantee atomicity and data consistency during the loading process.
@@ -56,6 +56,11 @@ Data loading into DuckDB was implemented in Python with the following optimizati
 To assess the performance of this custom loading process, a built-in DuckDB approach using the `COPY` feature was also implemented in [electric_vehicle_data_loader.py](./electric_vehicle_data_loader.py) as `load_data_built_in`. Benchmark results show:
 - `load_data_built_in`: Loads data in less than one second.
 - `load_data`: Loads data in approximately 16 seconds.
+
+The performance of the `load_data` function could be further optimized with the following approaches:
+- **Parallel processing:** Leverage multithreading to split the CSV file into chunks and process them concurrently.
+- **Optimal batch size:** Measure performance with different batch sizes to find an optimal trade-off between memory usage and insert performance.
+
 
 --- 
 
